@@ -11,12 +11,29 @@ import SnapKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UIViewController {
+final class MainController: UIViewController {
 
+  // MARK: Init and deinit
+  init(_ viewModel: MainControllerViewModelType) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  deinit {
+    print("\(self) dealloc")
+  }
+  
+  // MARK: Properties
+  let viewModel: MainControllerViewModelType
   let disposeBag = DisposeBag()
   let service: BasicNetworkService = BasicNetworkServiceImpl()
+
+  // MARK: UI
   let tableView = UITableView()
 
+  // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
