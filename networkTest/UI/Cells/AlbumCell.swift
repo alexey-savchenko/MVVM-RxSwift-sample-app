@@ -10,7 +10,33 @@ import UIKit
 
 class AlbumCell: UITableViewCell {
 
-  func configureWith(_ viewModel: AlbumCellViewModelType) {
+  private let titleLabel = UILabel()
 
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    guard contentView.subviews.isEmpty else {
+      return
+    }
+    setupLabel()
+    layoutUI()
+  }
+
+  private func setupLabel() {
+    titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+    titleLabel.numberOfLines = 0
+  }
+
+  private func layoutUI() {
+    contentView.addSubview(titleLabel)
+    titleLabel.snp.makeConstraints { (make) in
+      make.bottom.equalToSuperview().offset(-8)
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+      make.top.equalToSuperview().offset(36)
+    }
+  }
+
+  func configureWith(_ viewModel: AlbumCellViewModelType) {
+    titleLabel.text = viewModel.title
   }
 }
