@@ -95,9 +95,9 @@
 				026DF005208F1F3100539787 /* ViewModel */,
 				023FD694208DEE440098AC6E /* Network */,
 				023FD68F208DEDDF0098AC6E /* Models */,
+				0287EAE4208F78FB00A8AA3B /* Controllers */,
 				0229CB98208DDEE30096ED35 /* AppDelegate.swift */,
 				026DF016208F2C6A00539787 /* Utility.swift */,
-				0229CB9A208DDEE30096ED35 /* MainController.swift */,
 				0229CB9F208DDEE40096ED35 /* Assets.xcassets */,
 				0229CBA1208DDEE40096ED35 /* LaunchScreen.storyboard */,
 				0229CBA4208DDEE40096ED35 /* Info.plist */,
@@ -162,6 +162,14 @@
 				026DF01B208F2EEF00539787 /* PostsResource.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		0287EAE4208F78FB00A8AA3B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0229CB9A208DDEE30096ED35 /* MainController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		19808130F957CE8F1AD205E3 /* Pods */ = {
