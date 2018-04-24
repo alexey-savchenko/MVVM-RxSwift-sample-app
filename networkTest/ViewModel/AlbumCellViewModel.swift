@@ -9,5 +9,17 @@
 import Foundation
 
 protocol AlbumCellViewModelType {
+  var title: String { get }
+}
 
-} 
+class AlbumCellViewModel: AlbumCellViewModelType {
+  init(_ album: Album) {
+    self.album = album
+  }
+
+  private let album: Album
+
+  var title: String {
+    return album.title
+  }
+}
