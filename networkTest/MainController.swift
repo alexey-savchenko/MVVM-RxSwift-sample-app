@@ -42,7 +42,9 @@ final class MainController: UIViewController {
   }
 
   // MARK: Functions
-  fileprivate func setupTableView() {
+  private func setupTableView() {
+    tableView.register(PostCell.self, forCellReuseIdentifier: "PostCell")
+    tableView.register(AlbumCell.self, forCellReuseIdentifier: "AlbumCell")
     view.addSubview(tableView)
     tableView.snp.makeConstraints { (make) in
       make.top.equalTo(modeSelectionSegment.snp.bottom).offset(8)
@@ -52,7 +54,7 @@ final class MainController: UIViewController {
     }
   }
 
-  fileprivate func setupModeSelectionSegment() {
+  private func setupModeSelectionSegment() {
     view.addSubview(modeSelectionSegment)
     modeSelectionSegment.snp.makeConstraints { (make) in
       make.top.equalToSuperview().offset(8)
@@ -67,12 +69,12 @@ final class MainController: UIViewController {
     setupTableView()
   }
 
-  func setupBindings() {
+  private func setupBindings() {
     setupTableViewBindings()
     setupModeSelectionSegmentBindings()
   }
 
-  func setupModeSelectionSegmentBindings() {
+  private func setupModeSelectionSegmentBindings() {
     modeSelectionSegment.rx
       .selectedSegmentIndex
       .asObservable()
@@ -82,8 +84,18 @@ final class MainController: UIViewController {
       .disposed(by: disposeBag)
   }
 
-  func setupTableViewBindings() {
-    // TODO: Implment
-
+  private func setupTableViewBindings() {
+    viewModel.albumsDriver
+      .drive(tableView.rx.items) { tableView, row, viewModel in
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell") as! AlbumCell
+        cell.configureWith(viewModel)
+        return cell
+      }.disposed(by: disposeBag)
+    viewModel.postsDriver
+      .drive(tableView.rx.items) { tableView, row, viewModel in
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+        cell.configureWith(viewModel)
+        return cell
+      }.disposed(by: disposeBag)
   }
 }

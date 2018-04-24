@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0229CB99208DDEE30096ED35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB98208DDEE30096ED35 /* AppDelegate.swift */; };
-		0229CB9B208DDEE30096ED35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB9A208DDEE30096ED35 /* ViewController.swift */; };
+		0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB9A208DDEE30096ED35 /* MainController.swift */; };
 		0229CBA0208DDEE40096ED35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0229CB9F208DDEE40096ED35 /* Assets.xcassets */; };
 		0229CBA3208DDEE40096ED35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0229CBA1208DDEE40096ED35 /* LaunchScreen.storyboard */; };
 		023FD68D208DE10C0098AC6E /* APIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FD68C208DE10C0098AC6E /* APIAction.swift */; };
@@ -22,7 +22,7 @@
 		026DF00D208F299D00539787 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF00C208F299D00539787 /* AlbumCell.swift */; };
 		026DF011208F29BA00539787 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF010208F29BA00539787 /* PostCell.swift */; };
 		026DF013208F2A4200539787 /* AlbumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF012208F2A4200539787 /* AlbumCellViewModel.swift */; };
-		026DF015208F2A7400539787 /* PostCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF014208F2A7400539787 /* PostCellViewModelType.swift */; };
+		026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF014208F2A7400539787 /* PostCellViewModel.swift */; };
 		026DF017208F2C6A00539787 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF016208F2C6A00539787 /* Utility.swift */; };
 		026DF01A208F2ECE00539787 /* AlbumsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF019208F2ECE00539787 /* AlbumsResource.swift */; };
 		026DF01C208F2EEF00539787 /* PostsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF01B208F2EEF00539787 /* PostsResource.swift */; };
@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		0229CB95208DDEE30096ED35 /* networkTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = networkTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0229CB98208DDEE30096ED35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0229CB9A208DDEE30096ED35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0229CB9A208DDEE30096ED35 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		0229CB9F208DDEE40096ED35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0229CBA2208DDEE40096ED35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0229CBA4208DDEE40096ED35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		026DF00C208F299D00539787 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		026DF010208F29BA00539787 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		026DF012208F2A4200539787 /* AlbumCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCellViewModel.swift; sourceTree = "<group>"; };
-		026DF014208F2A7400539787 /* PostCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModelType.swift; sourceTree = "<group>"; };
+		026DF014208F2A7400539787 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		026DF016208F2C6A00539787 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		026DF019208F2ECE00539787 /* AlbumsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsResource.swift; sourceTree = "<group>"; };
 		026DF01B208F2EEF00539787 /* PostsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResource.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				023FD68F208DEDDF0098AC6E /* Models */,
 				0229CB98208DDEE30096ED35 /* AppDelegate.swift */,
 				026DF016208F2C6A00539787 /* Utility.swift */,
-				0229CB9A208DDEE30096ED35 /* ViewController.swift */,
+				0229CB9A208DDEE30096ED35 /* MainController.swift */,
 				0229CB9F208DDEE40096ED35 /* Assets.xcassets */,
 				0229CBA1208DDEE40096ED35 /* LaunchScreen.storyboard */,
 				0229CBA4208DDEE40096ED35 /* Info.plist */,
@@ -129,7 +129,7 @@
 			children = (
 				026DF006208F1F6800539787 /* MainControllerViewModel.swift */,
 				026DF012208F2A4200539787 /* AlbumCellViewModel.swift */,
-				026DF014208F2A7400539787 /* PostCellViewModelType.swift */,
+				026DF014208F2A7400539787 /* PostCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023FD68D208DE10C0098AC6E /* APIAction.swift in Sources */,
-				0229CB9B208DDEE30096ED35 /* ViewController.swift in Sources */,
+				0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */,
 				0229CB99208DDEE30096ED35 /* AppDelegate.swift in Sources */,
 				026DF013208F2A4200539787 /* AlbumCellViewModel.swift in Sources */,
 				026DF00B208F231F00539787 /* Resource.swift in Sources */,
@@ -312,7 +312,7 @@
 				023FD693208DEDF10098AC6E /* Album.swift in Sources */,
 				026DF01C208F2EEF00539787 /* PostsResource.swift in Sources */,
 				026DF01A208F2ECE00539787 /* AlbumsResource.swift in Sources */,
-				026DF015208F2A7400539787 /* PostCellViewModelType.swift in Sources */,
+				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,
 				026DF00D208F299D00539787 /* AlbumCell.swift in Sources */,
 				023FD698208DEFEE0098AC6E /* NetworkService.swift in Sources */,
 				026DF011208F29BA00539787 /* PostCell.swift in Sources */,
