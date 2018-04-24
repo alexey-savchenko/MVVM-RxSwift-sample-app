@@ -12,11 +12,7 @@ import RxCocoa
 
 protocol MainControllerViewModelType: class {
   var modeSelectedSubject: PublishSubject<FetchTarget> { get }
-
   var dataDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> { get }
-  
-//  var postsDriver: Driver<[PostCellViewModelType]> { get }
-//  var albumsDriver: Driver<[AlbumCellViewModelType]> { get }
 }
 
 final class MainControllerViewModel: MainControllerViewModelType {
@@ -37,9 +33,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
 
   // MARK: Properties
   private let service: BasicNetworkService
-  let dataSubject = BehaviorSubject<[Either<AlbumCellViewModelType, PostCellViewModelType>]>(value: [])
-  private let albumsSubject = BehaviorSubject<[AlbumCellViewModelType]>(value: [])
-  private let postsSubject = BehaviorSubject<[PostCellViewModelType]>(value: [])
+  private let dataSubject = BehaviorSubject<[Either<AlbumCellViewModelType, PostCellViewModelType>]>(value: [])
   private let disposeBag = DisposeBag()
   
   var modeSelectedSubject = PublishSubject<FetchTarget>()
