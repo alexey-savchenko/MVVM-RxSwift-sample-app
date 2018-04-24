@@ -30,8 +30,8 @@ class AlbumCell: UITableViewCell {
     contentView.addSubview(titleLabel)
     titleLabel.snp.makeConstraints { (make) in
       make.bottom.equalToSuperview().offset(-8)
-      make.leading.equalToSuperview()
-      make.trailing.equalToSuperview()
+      make.leading.equalToSuperview().offset(20)
+      make.trailing.equalToSuperview().offset(-20)
       make.top.equalToSuperview().offset(36)
     }
   }
