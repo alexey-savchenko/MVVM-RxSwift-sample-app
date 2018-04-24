@@ -19,8 +19,6 @@ protocol BasicNetworkService {
 struct BasicNetworkServiceImpl: BasicNetworkService {
   func getResource<T>(_ resourse: Resource<T>) -> Observable<T> {
     let req = RxAlamofire.request(resourse.action)
-      return req
-        .responseJSON()
-        .flatMap(resourse.parseResponse)
+    return req.responseJSON().flatMap(resourse.parseResponse)
   }
 }

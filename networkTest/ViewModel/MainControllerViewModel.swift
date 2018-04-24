@@ -8,12 +8,12 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol MainControllerViewModelType: class {
-  func getAlbums() -> Observable<[Album]>
-  func getPosts() -> Observable<[Post]>
-
   var modeSelectedSubject: PublishSubject<FetchTarget> { get }
+  var postsDriver: Driver<[Post]> { get }
+  var albumsDriver: Driver<[Album]> { get }
 }
 
 final class MainControllerViewModel: MainControllerViewModelType {
@@ -21,6 +21,11 @@ final class MainControllerViewModel: MainControllerViewModelType {
   // MARK: Init and deinit
   init(_ service: BasicNetworkService) {
     self.service = service
+
+    modeSelectedSubject
+      .asObservable()
+      .bind(onNext: targetSelected)
+      .disposed(by: disposeBag)
   }
   deinit {
     print("\(self) dealloc")
@@ -28,14 +33,33 @@ final class MainControllerViewModel: MainControllerViewModelType {
 
   // MARK: Properties
   private let service: BasicNetworkService
+  private let albumsSubject = BehaviorSubject<[Album]>(value: [])
+  private let postsSubject = BehaviorSubject<[Post]>(value: [])
+  let disposeBag = DisposeBag()
   var modeSelectedSubject = PublishSubject<FetchTarget>()
 
-  // MARK: Functions
-  func getAlbums() -> Observable<[Album]> {
-    fatalError()
+  var postsDriver: Driver<[Post]> {
+    return postsSubject.asDriver(onErrorJustReturn: [])
   }
 
-  func getPosts() -> Observable<[Post]> {
-    fatalError()
+  var albumsDriver: Driver<[Album]> {
+    return albumsSubject.asDriver(onErrorJustReturn: [])
+  }
+
+  // MARK: Functions
+  func targetSelected(_ target: FetchTarget) {
+    switch target {
+    case .albums:
+      service
+        .getResource(AlbumsResourse())
+        .subscribe(albumsSubject)
+        .disposed(by: disposeBag)
+      
+    case .posts:
+      service
+        .getResource(PostsResourse())
+        .subscribe(postsSubject)
+        .disposed(by: disposeBag)
+    }
   }
 }

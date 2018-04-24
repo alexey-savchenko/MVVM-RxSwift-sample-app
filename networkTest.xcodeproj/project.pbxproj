@@ -24,6 +24,8 @@
 		026DF013208F2A4200539787 /* AlbumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF012208F2A4200539787 /* AlbumCellViewModel.swift */; };
 		026DF015208F2A7400539787 /* PostCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF014208F2A7400539787 /* PostCellViewModelType.swift */; };
 		026DF017208F2C6A00539787 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF016208F2C6A00539787 /* Utility.swift */; };
+		026DF01A208F2ECE00539787 /* AlbumsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF019208F2ECE00539787 /* AlbumsResource.swift */; };
+		026DF01C208F2EEF00539787 /* PostsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF01B208F2EEF00539787 /* PostsResource.swift */; };
 		42AD59D4F47BE2E9B9ACF875 /* Pods_networkTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B8B37B8C7453BE6C9451B /* Pods_networkTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		026DF012208F2A4200539787 /* AlbumCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCellViewModel.swift; sourceTree = "<group>"; };
 		026DF014208F2A7400539787 /* PostCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModelType.swift; sourceTree = "<group>"; };
 		026DF016208F2C6A00539787 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		026DF019208F2ECE00539787 /* AlbumsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsResource.swift; sourceTree = "<group>"; };
+		026DF01B208F2EEF00539787 /* PostsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResource.swift; sourceTree = "<group>"; };
 		2101797E898B2A428631A537 /* Pods-networkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networkTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-networkTest/Pods-networkTest.debug.xcconfig"; sourceTree = "<group>"; };
 		75AE4C022D310BDFD5C3CBB5 /* Pods-networkTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networkTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-networkTest/Pods-networkTest.release.xcconfig"; sourceTree = "<group>"; };
 		FC6B8B37B8C7453BE6C9451B /* Pods_networkTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_networkTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +119,7 @@
 				023FD68C208DE10C0098AC6E /* APIAction.swift */,
 				023FD695208DEE8F0098AC6E /* BasicAction.swift */,
 				023FD697208DEFEE0098AC6E /* NetworkService.swift */,
-				026DF00A208F231F00539787 /* Resource.swift */,
+				026DF018208F2E3700539787 /* Resource */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -145,6 +149,16 @@
 				026DF010208F29BA00539787 /* PostCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		026DF018208F2E3700539787 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				026DF00A208F231F00539787 /* Resource.swift */,
+				026DF019208F2ECE00539787 /* AlbumsResource.swift */,
+				026DF01B208F2EEF00539787 /* PostsResource.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		19808130F957CE8F1AD205E3 /* Pods */ = {
@@ -296,6 +310,8 @@
 				026DF009208F222F00539787 /* FetchTarget.swift in Sources */,
 				026DF007208F1F6800539787 /* MainControllerViewModel.swift in Sources */,
 				023FD693208DEDF10098AC6E /* Album.swift in Sources */,
+				026DF01C208F2EEF00539787 /* PostsResource.swift in Sources */,
+				026DF01A208F2ECE00539787 /* AlbumsResource.swift in Sources */,
 				026DF015208F2A7400539787 /* PostCellViewModelType.swift in Sources */,
 				026DF00D208F299D00539787 /* AlbumCell.swift in Sources */,
 				023FD698208DEFEE0098AC6E /* NetworkService.swift in Sources */,
