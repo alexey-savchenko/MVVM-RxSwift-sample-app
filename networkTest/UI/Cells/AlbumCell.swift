@@ -38,5 +38,6 @@ class AlbumCell: UITableViewCell {
 
   func configureWith(_ viewModel: AlbumCellViewModelType) {
     titleLabel.text = viewModel.title
+    layoutIfNeeded()
   }
 }

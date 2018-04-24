@@ -12,8 +12,11 @@ import RxCocoa
 
 protocol MainControllerViewModelType: class {
   var modeSelectedSubject: PublishSubject<FetchTarget> { get }
-  var postsDriver: Driver<[PostCellViewModelType]> { get }
-  var albumsDriver: Driver<[AlbumCellViewModelType]> { get }
+
+  var dataDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> { get }
+  
+//  var postsDriver: Driver<[PostCellViewModelType]> { get }
+//  var albumsDriver: Driver<[AlbumCellViewModelType]> { get }
 }
 
 final class MainControllerViewModel: MainControllerViewModelType {
@@ -24,6 +27,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
 
     modeSelectedSubject
       .asObservable()
+      .distinctUntilChanged()
       .bind(onNext: targetSelected)
       .disposed(by: disposeBag)
   }
@@ -33,18 +37,15 @@ final class MainControllerViewModel: MainControllerViewModelType {
 
   // MARK: Properties
   private let service: BasicNetworkService
+  let dataSubject = BehaviorSubject<[Either<AlbumCellViewModelType, PostCellViewModelType>]>(value: [])
   private let albumsSubject = BehaviorSubject<[AlbumCellViewModelType]>(value: [])
   private let postsSubject = BehaviorSubject<[PostCellViewModelType]>(value: [])
   private let disposeBag = DisposeBag()
   
   var modeSelectedSubject = PublishSubject<FetchTarget>()
 
-  var postsDriver: Driver<[PostCellViewModelType]> {
-    return postsSubject.asDriver(onErrorJustReturn: [])
-  }
-
-  var albumsDriver: Driver<[AlbumCellViewModelType]> {
-    return albumsSubject.asDriver(onErrorJustReturn: [])
+  var dataDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> {
+    return dataSubject.asDriver(onErrorJustReturn: [])
   }
 
   // MARK: Functions
@@ -54,14 +55,16 @@ final class MainControllerViewModel: MainControllerViewModelType {
       service
         .getResource(AlbumsResourse())
         .map { $0.map(AlbumCellViewModel.init) }
-        .subscribe(albumsSubject)
+        .map { item in return item.map(Either<AlbumCellViewModelType, PostCellViewModelType>.left) }
+        .subscribe(dataSubject)
         .disposed(by: disposeBag)
 
     case .posts:
       service
         .getResource(PostsResourse())
         .map { $0.map(PostCellViewModel.init) }
-        .subscribe(postsSubject)
+        .map { item in return item.map(Either<AlbumCellViewModelType, PostCellViewModelType>.right) }
+        .subscribe(dataSubject)
         .disposed(by: disposeBag)
     }
   }
