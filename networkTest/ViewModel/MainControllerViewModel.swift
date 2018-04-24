@@ -10,22 +10,32 @@ import Foundation
 import RxSwift
 
 protocol MainControllerViewModelType: class {
-  func get<T>(_ target: FetchTarget) -> Observable<T>
+  func getAlbums() -> Observable<[Album]>
+  func getPosts() -> Observable<[Post]>
+
+  var modeSelectedSubject: PublishSubject<FetchTarget> { get }
 }
 
 final class MainControllerViewModel: MainControllerViewModelType {
-  func get<T>(_ target: FetchTarget) -> Observable<T> {
-    switch target {
-    case .albums:
-      return service.getResource(AlbumsResourse())
-    case .posts:
-      return service.getResource(PostsResourse())
-    }
-  }
 
+  // MARK: Init and deinit
   init(_ service: BasicNetworkService) {
     self.service = service
   }
+  deinit {
+    print("\(self) dealloc")
+  }
 
+  // MARK: Properties
   private let service: BasicNetworkService
+  var modeSelectedSubject = PublishSubject<FetchTarget>()
+
+  // MARK: Functions
+  func getAlbums() -> Observable<[Album]> {
+    fatalError()
+  }
+
+  func getPosts() -> Observable<[Post]> {
+    fatalError()
+  }
 }

@@ -1,5 +1,5 @@
 //
-//  FetchTarget.swift
+//  AlbumCellViewModel.swift
 //  networkTest
 //
 //  Created by Alexey Savchenko on 24.04.2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum FetchTarget: Int {
-  case albums = 0, posts
-}
+protocol AlbumCellViewModelType {
+
+} 

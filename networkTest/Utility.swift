@@ -1,5 +1,5 @@
 //
-//  FetchTarget.swift
+//  Utility.swift
 //  networkTest
 //
 //  Created by Alexey Savchenko on 24.04.2018.
@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import RxSwift
 
-enum FetchTarget: Int {
-  case albums = 0, posts
+func ignoreNil<A>(x: A?) -> Observable<A> {
+  return x.map { Observable.just($0) } ?? Observable.empty()
 }

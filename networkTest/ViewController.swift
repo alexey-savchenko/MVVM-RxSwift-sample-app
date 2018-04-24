@@ -28,29 +28,62 @@ final class MainController: UIViewController {
   // MARK: Properties
   let viewModel: MainControllerViewModelType
   let disposeBag = DisposeBag()
-  let service: BasicNetworkService = BasicNetworkServiceImpl()
 
   // MARK: UI
   let tableView = UITableView()
+  let modeSelectionSegment = UISegmentedControl(items: ["Albums", "Posts"])
 
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .white
+    setupUI()
+    setupBindings()
+  }
+
+  // MARK: Functions
+  fileprivate func setupTableView() {
     view.addSubview(tableView)
     tableView.snp.makeConstraints { (make) in
-      make.edges.equalToSuperview()
+      make.top.equalTo(modeSelectionSegment.snp.bottom).offset(8)
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+      make.bottom.equalToSuperview()
     }
+  }
 
-    service
-      .getResource(AlbumsResourse())
-      .bind(to: tableView.rx.items) { tableView, row, model in
-        let cell = UITableViewCell()
-        cell.textLabel?.text = model.title
-        return cell
-      }
+  fileprivate func setupModeSelectionSegment() {
+    view.addSubview(modeSelectionSegment)
+    modeSelectionSegment.snp.makeConstraints { (make) in
+      make.top.equalToSuperview().offset(8)
+      make.leading.equalToSuperview().offset(20)
+      make.trailing.equalToSuperview().offset(-20)
+    }
+  }
+
+  fileprivate func setupUI() {
+    view.backgroundColor = .white
+    setupModeSelectionSegment()
+    setupTableView()
+  }
+
+  func setupBindings() {
+    setupTableViewBindings()
+    setupModeSelectionSegmentBindings()
+  }
+
+  func setupModeSelectionSegmentBindings() {
+    modeSelectionSegment.rx
+      .selectedSegmentIndex
+      .asObservable()
+      .map(FetchTarget.init)
+      .flatMap(ignoreNil)
+      .subscribe(viewModel.modeSelectedSubject)
       .disposed(by: disposeBag)
   }
-}
 
+  func setupTableViewBindings() {
+    // TODO: Implment
+
+  }
+}
