@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-final class AlbumController: UIViewController {
+final class PhotosController: UIViewController {
 
   // MARK: Init and deinit
   init(_ viewModel: AlbumControllerViewModelType) {

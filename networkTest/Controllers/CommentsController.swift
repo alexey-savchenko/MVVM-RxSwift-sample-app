@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-final class PostController: UIViewController {
+final class CommentsController: UIViewController {
 
   // MARK: Init and deinit
   init(_ viewModel: PostControllerViewModelType) {

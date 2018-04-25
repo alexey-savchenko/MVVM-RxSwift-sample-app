@@ -10,8 +10,8 @@
 		0205177C2090762B0052B1FA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205177B2090762B0052B1FA /* Coordinator.swift */; };
 		0205177E209077050052B1FA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205177D209077050052B1FA /* AppCoordinator.swift */; };
 		0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178020907BF30052B1FA /* NavigationDelegate.swift */; };
-		0205178320907E420052B1FA /* AlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178220907E420052B1FA /* AlbumController.swift */; };
-		0205178520907E4B0052B1FA /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178420907E4B0052B1FA /* PostController.swift */; };
+		0205178320907E420052B1FA /* PhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178220907E420052B1FA /* PhotosController.swift */; };
+		0205178520907E4B0052B1FA /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178420907E4B0052B1FA /* CommentsController.swift */; };
 		0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */; };
 		0205178920907F010052B1FA /* PostControllerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178820907F010052B1FA /* PostControllerViewModelType.swift */; };
 		0205178B209088E10052B1FA /* AdvancedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178A209088E10052B1FA /* AdvancedAction.swift */; };
@@ -50,8 +50,8 @@
 		0205177B2090762B0052B1FA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0205177D209077050052B1FA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0205178020907BF30052B1FA /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
-		0205178220907E420052B1FA /* AlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumController.swift; sourceTree = "<group>"; };
-		0205178420907E4B0052B1FA /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		0205178220907E420052B1FA /* PhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosController.swift; sourceTree = "<group>"; };
+		0205178420907E4B0052B1FA /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumControllerViewModelType.swift; sourceTree = "<group>"; };
 		0205178820907F010052B1FA /* PostControllerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostControllerViewModelType.swift; sourceTree = "<group>"; };
 		0205178A209088E10052B1FA /* AdvancedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedAction.swift; sourceTree = "<group>"; };
@@ -246,8 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				0229CB9A208DDEE30096ED35 /* MainController.swift */,
-				0205178220907E420052B1FA /* AlbumController.swift */,
-				0205178420907E4B0052B1FA /* PostController.swift */,
+				0205178220907E420052B1FA /* PhotosController.swift */,
+				0205178420907E4B0052B1FA /* CommentsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -406,11 +406,11 @@
 				026DF009208F222F00539787 /* FetchTarget.swift in Sources */,
 				0205179B2090BA5C0052B1FA /* CommentCell.swift in Sources */,
 				0205178B209088E10052B1FA /* AdvancedAction.swift in Sources */,
-				0205178320907E420052B1FA /* AlbumController.swift in Sources */,
+				0205178320907E420052B1FA /* PhotosController.swift in Sources */,
 				026DF007208F1F6800539787 /* MainControllerViewModel.swift in Sources */,
 				023FD693208DEDF10098AC6E /* Album.swift in Sources */,
 				0205177E209077050052B1FA /* AppCoordinator.swift in Sources */,
-				0205178520907E4B0052B1FA /* PostController.swift in Sources */,
+				0205178520907E4B0052B1FA /* CommentsController.swift in Sources */,
 				0205178D2090ADB60052B1FA /* CommentsResource.swift in Sources */,
 				0205179D2090BC840052B1FA /* PhotoCell.swift in Sources */,
 				0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */,
