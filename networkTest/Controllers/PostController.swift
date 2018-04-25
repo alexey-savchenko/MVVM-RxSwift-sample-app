@@ -8,15 +8,21 @@
 
 import UIKit
 
-class PostController: UIViewController {
+final class PostController: UIViewController {
 
+  // MARK: Init and deinit
   init(_ viewModel: PostControllerViewModelType) {
-
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
-  
+  deinit {
+    print("\(self) dealloc")
+  }
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+
+  // MARK: Properties
+  private let viewModel: PostControllerViewModelType
   
 }

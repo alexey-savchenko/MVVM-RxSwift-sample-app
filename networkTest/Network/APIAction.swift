@@ -19,6 +19,12 @@ protocol APIAction: URLRequestConvertible {
 }
 
 extension APIAction {
+  var actionParameters: [String : Any] {
+    return [:]
+  }
+  var authHeader: [String : String] {
+    return [:]
+  }
   var baseURL: String {
     return "https://jsonplaceholder.typicode.com"
   }

@@ -1,5 +1,5 @@
 //
-//  AlbumControllerViewModelType.swift
+//  CommentCellViewModel.swift
 //  networkTest
 //
 //  Created by Alexey Savchenko on 25.04.2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AlbumControllerViewModelType {
+protocol CommentCellViewModelType {
   
 }

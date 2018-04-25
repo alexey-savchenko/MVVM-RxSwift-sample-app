@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class AlbumsResourse: Resource<[Album]> {
   convenience init() {
-    self.init(action: BasicAction.albums(id: nil)) { (dataResponse) -> Observable<[Album]> in
+    self.init(action: BasicAction.albums) { (dataResponse) -> Observable<[Album]> in
       return Observable.create { observer in
         switch dataResponse.result {
         case .success(let value):

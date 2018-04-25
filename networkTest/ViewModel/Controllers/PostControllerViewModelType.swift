@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import RxCocoa
 
 protocol PostControllerViewModelType {
-  
+  var viewModelsDriver: Driver<[CommentCellViewModelType]> { get }
 }
+
