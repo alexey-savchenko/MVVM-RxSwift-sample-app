@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0205177C2090762B0052B1FA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205177B2090762B0052B1FA /* Coordinator.swift */; };
+		0205177E209077050052B1FA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205177D209077050052B1FA /* AppCoordinator.swift */; };
 		0229CB99208DDEE30096ED35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB98208DDEE30096ED35 /* AppDelegate.swift */; };
 		0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB9A208DDEE30096ED35 /* MainController.swift */; };
 		0229CBA0208DDEE40096ED35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0229CB9F208DDEE40096ED35 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0205177B2090762B0052B1FA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0205177D209077050052B1FA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0229CB95208DDEE30096ED35 /* networkTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = networkTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0229CB98208DDEE30096ED35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0229CB9A208DDEE30096ED35 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0205177A2090761C0052B1FA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0205177B2090762B0052B1FA /* Coordinator.swift */,
+				0205177D209077050052B1FA /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		0229CB8C208DDEE30096ED35 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,7 @@
 		0229CB97208DDEE30096ED35 /* networkTest */ = {
 			isa = PBXGroup;
 			children = (
+				0205177A2090761C0052B1FA /* Coordinator */,
 				026DF00E208F29A200539787 /* UI */,
 				026DF005208F1F3100539787 /* ViewModel */,
 				023FD694208DEE440098AC6E /* Network */,
@@ -316,11 +330,13 @@
 				026DF013208F2A4200539787 /* AlbumCellViewModel.swift in Sources */,
 				026DF00B208F231F00539787 /* Resource.swift in Sources */,
 				026DF017208F2C6A00539787 /* Utility.swift in Sources */,
+				0205177C2090762B0052B1FA /* Coordinator.swift in Sources */,
 				023FD691208DEDE80098AC6E /* Post.swift in Sources */,
 				023FD696208DEE8F0098AC6E /* BasicAction.swift in Sources */,
 				026DF009208F222F00539787 /* FetchTarget.swift in Sources */,
 				026DF007208F1F6800539787 /* MainControllerViewModel.swift in Sources */,
 				023FD693208DEDF10098AC6E /* Album.swift in Sources */,
+				0205177E209077050052B1FA /* AppCoordinator.swift in Sources */,
 				026DF01C208F2EEF00539787 /* PostsResource.swift in Sources */,
 				026DF01A208F2ECE00539787 /* AlbumsResource.swift in Sources */,
 				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,

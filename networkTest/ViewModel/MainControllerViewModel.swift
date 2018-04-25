@@ -12,7 +12,7 @@ import RxCocoa
 
 protocol MainControllerViewModelType: class {
   var modeSelectedSubject: PublishSubject<FetchTarget> { get }
-  var dataDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> { get }
+  var cellViewModelsDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> { get }
 }
 
 final class MainControllerViewModel: MainControllerViewModelType {
@@ -38,7 +38,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
   
   var modeSelectedSubject = PublishSubject<FetchTarget>()
 
-  var dataDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> {
+  var cellViewModelsDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> {
     return dataSubject.asDriver(onErrorJustReturn: [])
   }
 

@@ -87,7 +87,7 @@ final class MainController: UIViewController {
 
   private func setupTableViewBindings() {
 
-    viewModel.dataDriver
+    viewModel.cellViewModelsDriver
       .drive(tableView.rx.items) { tableView, row, viewModel in
         let cell = viewModel.either(ifLeft: { (albumViewModel) -> UITableViewCell in
           let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell") as! AlbumCell
