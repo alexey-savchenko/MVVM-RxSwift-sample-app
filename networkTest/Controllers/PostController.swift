@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class PostController: UIViewController {
 
@@ -22,7 +23,40 @@ final class PostController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
+  // MARK: UI
+  let tableView = UITableView()
+
   // MARK: Properties
   private let viewModel: PostControllerViewModelType
-  
+  private let disposeBag = DisposeBag()
+
+  // MARK: Functions
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupUI()
+    bindToViewModel()
+  }
+  private func bindToViewModel() {
+    viewModel.viewModelsDriver
+      .drive(tableView.rx.items) { tableView, row, item in
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+        cell.fillWith(item)
+        return cell
+      }.disposed(by: disposeBag)
+  }
+
+  private func setupUI() {
+    view.backgroundColor = .white
+    view.addSubview(tableView)
+
+    tableView.snp.makeConstraints { (make) in
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.leading.equalToSuperview().offset(20)
+      make.trailing.equalToSuperview().offset(-20)
+      make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+    }
+    tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
+  }
+
 }

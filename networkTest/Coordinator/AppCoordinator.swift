@@ -40,6 +40,13 @@ class AppCoordinator: Coordinator {
 
 extension AppCoordinator: NavigationDelegate {
   func viewModelSelected(_ viewModel: Either<AlbumCellViewModelType, PostCellViewModelType>) {
-    
+    let controller: UIViewController = viewModel.either(ifLeft: { (albumViewModel) -> UIViewController in
+      let albumController = AlbumController(AlbumControllerViewModel(BasicNetworkServiceImpl(), albumID: albumViewModel.id))
+      return albumController
+    }) { (postViewModel) -> UIViewController in
+      let postController = PostController.init(PostControllerViewModel(BasicNetworkServiceImpl(), postID: postViewModel.id))
+      return postController
+    }
+    navigationController.pushViewController(controller, animated: true)
   }
 }

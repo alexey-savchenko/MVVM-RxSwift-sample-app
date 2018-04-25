@@ -18,7 +18,9 @@ struct PostCellViewModel: PostCellViewModelType {
   init(_ post: Post) {
     self.post = post
   }
+
   private let post: Post
+
   var id: Int {
     return post.id
   }

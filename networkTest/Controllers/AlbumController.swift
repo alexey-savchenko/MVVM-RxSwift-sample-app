@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class AlbumController: UIViewController {
 
@@ -24,34 +25,40 @@ final class AlbumController: UIViewController {
 
   // MARK: Properties
   private let viewModel: AlbumControllerViewModelType
+  private let disposeBag = DisposeBag()
 
   // MARK: UI
-  private let textLabel = UILabel()
+  private let tableView = UITableView()
 
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
     setupUI()
-    fillWith(viewModel)
+    bindToViewModel()
   }
 
   // MARK: Functions
-  private func fillWith(_ viewModel: AlbumControllerViewModelType) {
-    
+  private func bindToViewModel() {
+    viewModel.viewModelsDriver
+      .drive(tableView.rx.items) { tableView, row, item in
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
+        cell.fillWith(item)
+        return cell
+      }.disposed(by: disposeBag)
   }
 
   private func setupUI() {
     view.backgroundColor = .white
-    view.addSubview(textLabel)
+    view.addSubview(tableView)
 
-    textLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
+    tableView.snp.makeConstraints { (make) in
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.equalToSuperview().offset(20)
       make.trailing.equalToSuperview().offset(-20)
+      make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
     }
-
-    textLabel.font = UIFont.boldSystemFont(ofSize: 36)
+    tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
   }
   
 }
