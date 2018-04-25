@@ -59,6 +59,7 @@ final class CommentsController: UIViewController {
     tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 100
+    tableView.allowsSelection = false
   }
 
 }

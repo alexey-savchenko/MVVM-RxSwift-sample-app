@@ -103,6 +103,7 @@ final class MainController: UIViewController {
 
     tableView.rx
       .modelSelected(Either<AlbumCellViewModelType, PostCellViewModelType>.self)
+      .do(onNext: { _ in self.tableView.indexPathsForSelectedRows?.forEach { self.tableView.deselectRow(at: $0, animated: true) }})
       .subscribe(viewModel.viewModelSelectedSubject)
       .disposed(by: disposeBag)
 

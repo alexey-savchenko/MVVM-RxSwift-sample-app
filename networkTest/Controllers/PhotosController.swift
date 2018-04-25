@@ -61,6 +61,7 @@ final class PhotosController: UIViewController {
     tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 100
+    tableView.allowsSelection = false
   }
   
 }

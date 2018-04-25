@@ -22,7 +22,7 @@ extension Photo {
     albumId = json["albumId"].intValue
     id = json["id"].intValue
     title = json["title"].stringValue
-    url = json["url"].stringValue
-    thumbnailUrl = json["thumbnailUrl"].stringValue
+    url = json["url"].stringValue.replacingOccurrences(of: "http", with: "https")
+    thumbnailUrl = json["thumbnailUrl"].stringValue.replacingOccurrences(of: "http", with: "https")
   }
 }

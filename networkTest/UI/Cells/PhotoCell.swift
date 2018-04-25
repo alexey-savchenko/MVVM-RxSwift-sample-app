@@ -39,8 +39,6 @@ class PhotoCell: UITableViewCell {
       make.trailing.equalToSuperview().offset(-20)
     }
     contentStackView.axis = .horizontal
-//    contentStackView.alignment = .center
-//    contentStackView.distribution = .fillProportionally
   }
 
   private func configureLabel() {
@@ -53,6 +51,7 @@ class PhotoCell: UITableViewCell {
       make.width.equalTo(100)
       make.height.equalTo(100)
     }
+    thumbnailImageView.contentMode = .scaleAspectFill
   }
 
   func fillWith(_ viewModel: PhotoCellViewModelType) {
