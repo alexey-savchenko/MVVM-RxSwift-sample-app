@@ -22,7 +22,7 @@ extension Comment {
     postId = json["postId"].intValue
     id = json["id"].intValue
     name = json["name"].stringValue
-    email = json["postId"].stringValue
-    body = json["postId"].stringValue
+    email = json["email"].stringValue
+    body = json["body"].stringValue
   }
 }

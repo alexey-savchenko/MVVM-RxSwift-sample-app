@@ -25,6 +25,10 @@ class AlbumControllerViewModel: AlbumControllerViewModelType {
       .subscribe(viewModelsSubject)
       .disposed(by: disposeBag)
   }
+
+  deinit {
+    print("\(self) dealloc")
+  }
   private let disposeBag = DisposeBag()
   private let service: BasicNetworkService
   private let viewModelsSubject = PublishSubject<[PhotoCellViewModelType]>()

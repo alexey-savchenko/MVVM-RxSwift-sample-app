@@ -59,6 +59,8 @@ final class PhotosController: UIViewController {
       make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
     }
     tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100
   }
   
 }

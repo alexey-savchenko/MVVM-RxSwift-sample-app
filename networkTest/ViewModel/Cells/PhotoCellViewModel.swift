@@ -11,7 +11,7 @@ import Foundation
 protocol PhotoCellViewModelType {
   var title: String { get }
   var url: URL { get }
-  var thumbnailUrl: String { get }
+  var thumbnailUrl: URL { get }
 }
 
 struct PhotoCellViewModel: PhotoCellViewModelType {
@@ -30,7 +30,7 @@ struct PhotoCellViewModel: PhotoCellViewModelType {
     return URL(string: photo.url)!
   }
 
-  var thumbnailUrl: String {
-    return photo.thumbnailUrl
+  var thumbnailUrl: URL {
+    return URL(string: photo.thumbnailUrl)!
   }
 }

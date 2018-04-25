@@ -28,6 +28,7 @@ class PostCell: UITableViewCell {
       labelsStackView.addArrangedSubview($0)
     }
     contentView.addSubview(labelsStackView)
+    labelsStackView.spacing = 8
     labelsStackView.alignment = .fill
     labelsStackView.axis = .vertical
     labelsStackView.distribution = .fillProportionally

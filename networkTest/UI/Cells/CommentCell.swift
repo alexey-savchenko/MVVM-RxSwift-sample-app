@@ -40,6 +40,7 @@ final class CommentCell: UITableViewCell {
     contentStackView.axis = .vertical
     contentStackView.alignment = .fill
     contentStackView.distribution = .fillProportionally
+    contentStackView.spacing = 8
   }
 
   private func configureLabels() {

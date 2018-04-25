@@ -57,6 +57,8 @@ final class CommentsController: UIViewController {
       make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
     }
     tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100
   }
 
 }

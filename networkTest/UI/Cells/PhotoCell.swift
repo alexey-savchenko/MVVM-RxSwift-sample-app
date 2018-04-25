@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PhotoCell: UITableViewCell {
 
@@ -21,6 +22,7 @@ class PhotoCell: UITableViewCell {
     guard contentView.subviews.isEmpty else {
       return
     }
+    configureThumbnail()
     configureLabel()
     layoutUI()
   }
@@ -37,16 +39,27 @@ class PhotoCell: UITableViewCell {
       make.trailing.equalToSuperview().offset(-20)
     }
     contentStackView.axis = .horizontal
-    contentStackView.alignment = .fill
-    contentStackView.distribution = .fillProportionally
+//    contentStackView.alignment = .center
+//    contentStackView.distribution = .fillProportionally
   }
 
   private func configureLabel() {
     titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+    titleLabel.numberOfLines = 0 
+  }
+
+  private func configureThumbnail() {
+    thumbnailImageView.snp.makeConstraints { (make) in
+      make.width.equalTo(100)
+      make.height.equalTo(100)
+    }
   }
 
   func fillWith(_ viewModel: PhotoCellViewModelType) {
     titleLabel.text = viewModel.title
-    layoutIfNeeded()
+    thumbnailImageView.sd_setImage(with: viewModel.thumbnailUrl) { (_, _, _, _) in
+      self.layoutIfNeeded()
+    }
+    self.layoutIfNeeded()
   }
 }
