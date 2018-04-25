@@ -101,5 +101,10 @@ final class MainController: UIViewController {
         return cell
       }.disposed(by: disposeBag)
 
+    tableView.rx
+      .modelSelected(Either<AlbumCellViewModelType, PostCellViewModelType>.self)
+      .subscribe(viewModel.viewModelSelectedSubject)
+      .disposed(by: disposeBag)
+
   }
 }

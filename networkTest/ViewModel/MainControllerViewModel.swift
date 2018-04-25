@@ -12,19 +12,24 @@ import RxCocoa
 
 protocol MainControllerViewModelType: class {
   var modeSelectedSubject: PublishSubject<FetchTarget> { get }
+  var viewModelSelectedSubject: PublishSubject<Either<AlbumCellViewModelType, PostCellViewModelType>> { get }
   var cellViewModelsDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> { get }
 }
 
 final class MainControllerViewModel: MainControllerViewModelType {
 
   // MARK: Init and deinit
-  init(_ service: BasicNetworkService) {
+  init(_ service: BasicNetworkService, navigationDelegate: NavigationDelegate) {
     self.service = service
 
     modeSelectedSubject
       .asObservable()
       .distinctUntilChanged()
       .bind(onNext: targetSelected)
+      .disposed(by: disposeBag)
+
+    viewModelSelectedSubject.asObservable()
+      .bind(onNext: navigationDelegate.viewModelSelected)
       .disposed(by: disposeBag)
   }
   deinit {
@@ -37,6 +42,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
   private let disposeBag = DisposeBag()
   
   var modeSelectedSubject = PublishSubject<FetchTarget>()
+  var viewModelSelectedSubject = PublishSubject<Either<AlbumCellViewModelType, PostCellViewModelType>>()
 
   var cellViewModelsDriver: Driver<[Either<AlbumCellViewModelType, PostCellViewModelType>]> {
     return dataSubject.asDriver(onErrorJustReturn: [])

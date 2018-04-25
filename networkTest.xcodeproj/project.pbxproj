@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0205177C2090762B0052B1FA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205177B2090762B0052B1FA /* Coordinator.swift */; };
 		0205177E209077050052B1FA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205177D209077050052B1FA /* AppCoordinator.swift */; };
+		0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178020907BF30052B1FA /* NavigationDelegate.swift */; };
+		0205178320907E420052B1FA /* AlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178220907E420052B1FA /* AlbumController.swift */; };
+		0205178520907E4B0052B1FA /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178420907E4B0052B1FA /* PostController.swift */; };
+		0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */; };
+		0205178920907F010052B1FA /* PostControllerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178820907F010052B1FA /* PostControllerViewModelType.swift */; };
 		0229CB99208DDEE30096ED35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB98208DDEE30096ED35 /* AppDelegate.swift */; };
 		0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229CB9A208DDEE30096ED35 /* MainController.swift */; };
 		0229CBA0208DDEE40096ED35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0229CB9F208DDEE40096ED35 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 /* Begin PBXFileReference section */
 		0205177B2090762B0052B1FA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0205177D209077050052B1FA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0205178020907BF30052B1FA /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
+		0205178220907E420052B1FA /* AlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumController.swift; sourceTree = "<group>"; };
+		0205178420907E4B0052B1FA /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumControllerViewModelType.swift; sourceTree = "<group>"; };
+		0205178820907F010052B1FA /* PostControllerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostControllerViewModelType.swift; sourceTree = "<group>"; };
 		0229CB95208DDEE30096ED35 /* networkTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = networkTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0229CB98208DDEE30096ED35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0229CB9A208DDEE30096ED35 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -83,6 +93,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		0205177F20907BD70052B1FA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0205178020907BF30052B1FA /* NavigationDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		0229CB8C208DDEE30096ED35 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +122,7 @@
 		0229CB97208DDEE30096ED35 /* networkTest */ = {
 			isa = PBXGroup;
 			children = (
+				0205177F20907BD70052B1FA /* Protocols */,
 				0205177A2090761C0052B1FA /* Coordinator */,
 				026DF00E208F29A200539787 /* UI */,
 				026DF005208F1F3100539787 /* ViewModel */,
@@ -147,6 +166,8 @@
 				026DF006208F1F6800539787 /* MainControllerViewModel.swift */,
 				026DF012208F2A4200539787 /* AlbumCellViewModel.swift */,
 				026DF014208F2A7400539787 /* PostCellViewModel.swift */,
+				0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */,
+				0205178820907F010052B1FA /* PostControllerViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -182,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				0229CB9A208DDEE30096ED35 /* MainController.swift */,
+				0205178220907E420052B1FA /* AlbumController.swift */,
+				0205178420907E4B0052B1FA /* PostController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -325,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023FD68D208DE10C0098AC6E /* APIAction.swift in Sources */,
+				0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */,
 				0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */,
 				0229CB99208DDEE30096ED35 /* AppDelegate.swift in Sources */,
 				026DF013208F2A4200539787 /* AlbumCellViewModel.swift in Sources */,
@@ -334,10 +358,14 @@
 				023FD691208DEDE80098AC6E /* Post.swift in Sources */,
 				023FD696208DEE8F0098AC6E /* BasicAction.swift in Sources */,
 				026DF009208F222F00539787 /* FetchTarget.swift in Sources */,
+				0205178320907E420052B1FA /* AlbumController.swift in Sources */,
 				026DF007208F1F6800539787 /* MainControllerViewModel.swift in Sources */,
 				023FD693208DEDF10098AC6E /* Album.swift in Sources */,
 				0205177E209077050052B1FA /* AppCoordinator.swift in Sources */,
+				0205178520907E4B0052B1FA /* PostController.swift in Sources */,
+				0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */,
 				026DF01C208F2EEF00539787 /* PostsResource.swift in Sources */,
+				0205178920907F010052B1FA /* PostControllerViewModelType.swift in Sources */,
 				026DF01A208F2ECE00539787 /* AlbumsResource.swift in Sources */,
 				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,
 				026DF00D208F299D00539787 /* AlbumCell.swift in Sources */,
