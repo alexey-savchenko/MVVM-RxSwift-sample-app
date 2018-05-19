@@ -53,7 +53,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
     switch target {
     case .albums:
       service
-        .getResource(AlbumsResourse())
+        .load(ArrayResource<Album>(action: BasicAction.albums))
         .map { $0.map(AlbumCellViewModel.init) }
         .map { item in return item.map(Either<AlbumCellViewModelType, PostCellViewModelType>.left) }
         .subscribe(dataSubject)
@@ -61,7 +61,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
 
     case .posts:
       service
-        .getResource(PostsResourse())
+        .load(ArrayResource<Post>(action: BasicAction.posts))
         .map { $0.map(PostCellViewModel.init) }
         .map { item in return item.map(Either<AlbumCellViewModelType, PostCellViewModelType>.right) }
         .subscribe(dataSubject)

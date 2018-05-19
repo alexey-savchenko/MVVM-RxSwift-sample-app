@@ -17,7 +17,7 @@ struct Photo {
   let thumbnailUrl: String
 }
 
-extension Photo {
+extension Photo: JSONInitializeable {
   init(_ json: JSON) {
     albumId = json["albumId"].intValue
     id = json["id"].intValue

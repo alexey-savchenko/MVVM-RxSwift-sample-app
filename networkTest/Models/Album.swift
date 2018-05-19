@@ -15,7 +15,7 @@ struct Album {
   let title: String
 }
 
-extension Album {
+extension Album: JSONInitializeable {
   init(_ json: JSON) {
     userId = json["userId"].intValue
     id = json["id"].intValue

@@ -13,12 +13,27 @@ import RxAlamofire
 import SwiftyJSON
 
 protocol BasicNetworkService {
-  func getResource<T>(_ action: Resource<T>) -> Observable<T>
+  func load<T>(_ resource: SingleItemResource<T>) -> Observable<T>
+  func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]>
 }
 
 struct BasicNetworkServiceImpl: BasicNetworkService {
-  func getResource<T>(_ resourse: Resource<T>) -> Observable<T> {
-    let req = RxAlamofire.request(resourse.action)
-    return req.responseJSON().flatMap(resourse.parseResponse)
+
+  func load<T>(_ resource: SingleItemResource<T>) -> Observable<T> where T : JSONInitializeable {
+    return
+      RxAlamofire
+        .request(resource.action)
+        .responseJSON()
+        .map { $0.data ?? Data() }
+        .flatMap(resource.parse)
+  }
+
+  func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]> where T : JSONInitializeable {
+    return
+      RxAlamofire
+        .request(resource.action)
+        .responseJSON()
+        .map { $0.data ?? Data() }
+        .flatMap(resource.parse)
   }
 }

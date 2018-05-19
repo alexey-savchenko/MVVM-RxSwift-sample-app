@@ -17,7 +17,7 @@ struct Comment {
   let body: String
 }
 
-extension Comment {
+extension Comment: JSONInitializeable {
   init(_ json: JSON) {
     postId = json["postId"].intValue
     id = json["id"].intValue

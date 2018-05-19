@@ -20,7 +20,7 @@ class PostControllerViewModel: PostControllerViewModelType {
     self.service = service
 
     service
-      .getResource(CommentsResource(postID: postID))
+      .load(ArrayResource<Comment>(action: AdvancedAction.comments(postID: postID)))
       .map { $0.map(CommentCellViewModel.init) }
       .subscribe(viewModelsSubject)
       .disposed(by: disposeBag)

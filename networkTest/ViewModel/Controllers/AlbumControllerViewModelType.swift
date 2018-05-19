@@ -20,7 +20,7 @@ class AlbumControllerViewModel: AlbumControllerViewModelType {
     self.service = service
 
     service
-      .getResource(PhotosResource(albumID: albumID))
+      .load(ArrayResource<Photo>(action: AdvancedAction.photos(albumID: albumID)))
       .map { $0.map(PhotoCellViewModel.init) }
       .subscribe(viewModelsSubject)
       .disposed(by: disposeBag)

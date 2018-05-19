@@ -16,7 +16,7 @@ struct Post {
   let body: String
 }
 
-extension Post {
+extension Post: JSONInitializeable {
   init(_ json: JSON) {
     userId = json["userId"].intValue
     id = json["id"].intValue
