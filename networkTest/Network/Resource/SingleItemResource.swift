@@ -6,9 +6,7 @@
 //  Copyright © 2018 Alexey Savchenko. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import Alamofire
 import SwiftyJSON
 
 struct SingleItemResource<T: JSONInitializeable> {
@@ -19,7 +17,7 @@ struct SingleItemResource<T: JSONInitializeable> {
     return Observable.create { observer in
       let json = try? JSON(data: data)
       guard let result = json.map(T.init) else {
-        observer.onError(CustomError(value: "Cant map response."))
+        observer.onError(CustomError(value: "Can't map response."))
         return Disposables.create()
       }
       observer.onNext(result)
