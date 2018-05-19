@@ -6,11 +6,8 @@
 //  Copyright © 2018 Alexey Savchenko. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import Alamofire
 import RxAlamofire
-import SwiftyJSON
 
 protocol BasicNetworkService {
   func load<T>(_ resource: SingleItemResource<T>) -> Observable<T>
@@ -19,21 +16,27 @@ protocol BasicNetworkService {
 
 struct BasicNetworkServiceImpl: BasicNetworkService {
 
-  func load<T>(_ resource: SingleItemResource<T>) -> Observable<T> where T : JSONInitializeable {
+  func load<T>(_ resource: SingleItemResource<T>) -> Observable<T> where T : Codable {
     return
       RxAlamofire
         .request(resource.action)
+        .validate()
         .responseJSON()
-        .map { $0.data ?? Data() }
+        .map { $0.data }
+        .filter { $0 != nil }
+        .map { $0! }
         .flatMap(resource.parse)
   }
 
-  func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]> where T : JSONInitializeable {
+  func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]> where T : Codable {
     return
       RxAlamofire
         .request(resource.action)
+        .validate()
         .responseJSON()
-        .map { $0.data ?? Data() }
+        .map { $0.data }
+        .filter { $0 != nil }
+        .map { $0! }
         .flatMap(resource.parse)
   }
 }

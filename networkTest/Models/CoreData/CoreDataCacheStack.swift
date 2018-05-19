@@ -14,8 +14,8 @@ class CoreDataCacheStack {
     return persistentContainer.viewContext
   }()
   let persistentContainer: NSPersistentContainer
-  init() {
-    persistentContainer = NSPersistentContainer(name: "CacheModel")
+  init(_ modelName: String) {
+    persistentContainer = NSPersistentContainer(name: modelName)
     persistentContainer.loadPersistentStores { (_, error) in
       guard error == nil else {
         fatalError(error!.localizedDescription)

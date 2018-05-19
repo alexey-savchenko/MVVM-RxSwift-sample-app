@@ -9,20 +9,10 @@
 import Foundation
 import SwiftyJSON
 
-struct Comment {
+struct Comment: Codable {
   let postId: Int
   let id: Int
   let name: String
   let email: String
   let body: String
-}
-
-extension Comment: JSONInitializeable {
-  init(_ json: JSON) {
-    postId = json["postId"].intValue
-    id = json["id"].intValue
-    name = json["name"].stringValue
-    email = json["email"].stringValue
-    body = json["body"].stringValue
-  }
 }

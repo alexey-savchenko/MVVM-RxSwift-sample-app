@@ -9,18 +9,9 @@
 import Foundation
 import SwiftyJSON
 
-struct Post {
+struct Post: Codable {
   let userId: Int
   let id: Int
   let title: String
   let body: String
-}
-
-extension Post: JSONInitializeable {
-  init(_ json: JSON) {
-    userId = json["userId"].intValue
-    id = json["id"].intValue
-    title = json["title"].stringValue
-    body = json["body"].stringValue
-  }
 }

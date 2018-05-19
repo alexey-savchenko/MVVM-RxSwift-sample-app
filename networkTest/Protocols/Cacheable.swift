@@ -1,5 +1,5 @@
 //
-//  JSONInitializeable.swift
+//  Cacheable.swift
 //  networkTest
 //
 //  Created by Alexey Savchenko on 19.05.2018.
@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-protocol JSONInitializeable {
-  init(_ json: JSON)
+protocol Cacheable {
+  var cacheKey: String { get }
 }

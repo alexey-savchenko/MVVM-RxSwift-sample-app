@@ -9,16 +9,8 @@
 import Foundation
 import SwiftyJSON
 
-struct Album {
+struct Album: Codable {
   let userId: Int
   let id: Int
   let title: String
-}
-
-extension Album: JSONInitializeable {
-  init(_ json: JSON) {
-    userId = json["userId"].intValue
-    id = json["id"].intValue
-    title = json["title"].stringValue
-  }
 }

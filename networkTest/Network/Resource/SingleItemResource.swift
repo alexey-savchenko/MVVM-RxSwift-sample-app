@@ -9,19 +9,24 @@
 import RxSwift
 import SwiftyJSON
 
-struct SingleItemResource<T: JSONInitializeable> {
+struct SingleItemResource<T: Codable> {
   let objectType = T.self
   let action: APIAction
 
   func parse(_ data: Data) -> Observable<T> {
     return Observable.create { observer in
-      let json = try? JSON(data: data)
-      guard let result = json.map(T.init) else {
+      guard let result = try? JSONDecoder().decode(T.self, from: data) else {
         observer.onError(CustomError(value: "Can't map response."))
         return Disposables.create()
       }
       observer.onNext(result)
       return Disposables.create()
     }
+  }
+}
+
+extension SingleItemResource: Cacheable {
+  var cacheKey: String {
+    return "cache".appending(action.baseURL.appending(action.path))
   }
 }

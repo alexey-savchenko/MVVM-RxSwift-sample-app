@@ -38,9 +38,11 @@
 		026DF013208F2A4200539787 /* AlbumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF012208F2A4200539787 /* AlbumCellViewModel.swift */; };
 		026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF014208F2A7400539787 /* PostCellViewModel.swift */; };
 		026DF017208F2C6A00539787 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF016208F2C6A00539787 /* Utility.swift */; };
-		0273801120B01C9D00030808 /* JSONInitializeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273801020B01C9D00030808 /* JSONInitializeable.swift */; };
 		0273801320B0209600030808 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273801220B0209600030808 /* CustomError.swift */; };
 		0273801520B0273A00030808 /* ArrayResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273801420B0273A00030808 /* ArrayResource.swift */; };
+		0273801E20B02EF000030808 /* CacheModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0273801C20B02EF000030808 /* CacheModel.xcdatamodeld */; };
+		0273802020B02F5500030808 /* CachedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273801F20B02F5500030808 /* CachedNetworkService.swift */; };
+		0273802220B0793600030808 /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802120B0793600030808 /* Cacheable.swift */; };
 		0281277520AF424E00A93C55 /* CoreDataCacheStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */; };
 		0287EAE3208F760200A8AA3B /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287EAE2208F760200A8AA3B /* Either.swift */; };
 		42AD59D4F47BE2E9B9ACF875 /* Pods_networkTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B8B37B8C7453BE6C9451B /* Pods_networkTest.framework */; };
@@ -80,9 +82,11 @@
 		026DF012208F2A4200539787 /* AlbumCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCellViewModel.swift; sourceTree = "<group>"; };
 		026DF014208F2A7400539787 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		026DF016208F2C6A00539787 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		0273801020B01C9D00030808 /* JSONInitializeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONInitializeable.swift; sourceTree = "<group>"; };
 		0273801220B0209600030808 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		0273801420B0273A00030808 /* ArrayResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayResource.swift; sourceTree = "<group>"; };
+		0273801D20B02EF000030808 /* CacheModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CacheModel.xcdatamodel; sourceTree = "<group>"; };
+		0273801F20B02F5500030808 /* CachedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedNetworkService.swift; sourceTree = "<group>"; };
+		0273802120B0793600030808 /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCacheStack.swift; sourceTree = "<group>"; };
 		0287EAE2208F760200A8AA3B /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		2101797E898B2A428631A537 /* Pods-networkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networkTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-networkTest/Pods-networkTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				0205178020907BF30052B1FA /* NavigationDelegate.swift */,
-				0273801020B01C9D00030808 /* JSONInitializeable.swift */,
+				0273802120B0793600030808 /* Cacheable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -181,14 +185,13 @@
 		023FD68F208DEDDF0098AC6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0273802320B07D1200030808 /* Supporting models */,
 				0281277920AF42CB00A93C55 /* CoreData */,
 				023FD690208DEDE80098AC6E /* Post.swift */,
 				023FD692208DEDF10098AC6E /* Album.swift */,
-				026DF008208F222F00539787 /* FetchTarget.swift */,
-				0287EAE2208F760200A8AA3B /* Either.swift */,
 				0205178E2090ADCC0052B1FA /* Comment.swift */,
 				020517902090ADD40052B1FA /* Photo.swift */,
-				0273801220B0209600030808 /* CustomError.swift */,
+				026DF008208F222F00539787 /* FetchTarget.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,14 +257,25 @@
 			isa = PBXGroup;
 			children = (
 				023FD697208DEFEE0098AC6E /* BasicNetworkService.swift */,
+				0273801F20B02F5500030808 /* CachedNetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0273802320B07D1200030808 /* Supporting models */ = {
+			isa = PBXGroup;
+			children = (
+				0287EAE2208F760200A8AA3B /* Either.swift */,
+				0273801220B0209600030808 /* CustomError.swift */,
+			);
+			path = "Supporting models";
 			sourceTree = "<group>";
 		};
 		0281277920AF42CB00A93C55 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */,
+				0273801C20B02EF000030808 /* CacheModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -418,7 +432,6 @@
 			files = (
 				0281277520AF424E00A93C55 /* CoreDataCacheStack.swift in Sources */,
 				023FD68D208DE10C0098AC6E /* APIAction.swift in Sources */,
-				0273801120B01C9D00030808 /* JSONInitializeable.swift in Sources */,
 				0273801520B0273A00030808 /* ArrayResource.swift in Sources */,
 				0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */,
 				0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */,
@@ -440,16 +453,19 @@
 				023FD693208DEDF10098AC6E /* Album.swift in Sources */,
 				0205177E209077050052B1FA /* AppCoordinator.swift in Sources */,
 				0205178520907E4B0052B1FA /* CommentsController.swift in Sources */,
+				0273802020B02F5500030808 /* CachedNetworkService.swift in Sources */,
 				0205179D2090BC840052B1FA /* PhotoCell.swift in Sources */,
 				0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */,
 				0205178920907F010052B1FA /* PostControllerViewModelType.swift in Sources */,
 				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,
 				020517972090B43E0052B1FA /* CommentCellViewModel.swift in Sources */,
+				0273801E20B02EF000030808 /* CacheModel.xcdatamodeld in Sources */,
 				026DF00D208F299D00539787 /* AlbumCell.swift in Sources */,
 				023FD698208DEFEE0098AC6E /* BasicNetworkService.swift in Sources */,
 				0287EAE3208F760200A8AA3B /* Either.swift in Sources */,
 				026DF011208F29BA00539787 /* PostCell.swift in Sources */,
 				020517912090ADD40052B1FA /* Photo.swift in Sources */,
+				0273802220B0793600030808 /* Cacheable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +657,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0273801C20B02EF000030808 /* CacheModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0273801D20B02EF000030808 /* CacheModel.xcdatamodel */,
+			);
+			currentVersion = 0273801D20B02EF000030808 /* CacheModel.xcdatamodel */;
+			path = CacheModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0229CB8D208DDEE30096ED35 /* Project object */;
 }
