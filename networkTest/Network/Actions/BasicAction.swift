@@ -1,36 +1,33 @@
 //
-//  AdvancedAction.swift
+//  BasicAction.swift
 //  networkTest
 //
-//  Created by Alexey Savchenko on 25.04.2018.
+//  Created by Alexey Savchenko on 23.04.2018.
 //  Copyright © 2018 Alexey Savchenko. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
-enum AdvancedAction: APIAction {
-  case comments(postID: Int)
-  case photos(albumID: Int)
-
+enum BasicAction: APIAction {
+  case posts
+  case albums
 
   var method: HTTPMethod {
     return .get
   }
-
+  
   var path: String {
     switch self {
-    case let .comments(postID):
-      return "/posts/\(postID)/comments"
-    case let .photos(albumID):
-      return "/albums/\(albumID)/photos"
+    case .albums:
+      return "/albums"
+    case .posts:
+      return "/posts"
     }
   }
-
   var encoding: ParameterEncoding {
-   return URLEncoding.default
+    return URLEncoding.default
   }
-
+  
   func asURLRequest() throws -> URLRequest {
     let originalRequest = try URLRequest(url: baseURL.appending(path),
                                          method: method,
@@ -40,5 +37,3 @@ enum AdvancedAction: APIAction {
     return encodedRequest
   }
 }
-
-

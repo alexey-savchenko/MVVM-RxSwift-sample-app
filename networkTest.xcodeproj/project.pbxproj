@@ -29,7 +29,7 @@
 		023FD691208DEDE80098AC6E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FD690208DEDE80098AC6E /* Post.swift */; };
 		023FD693208DEDF10098AC6E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FD692208DEDF10098AC6E /* Album.swift */; };
 		023FD696208DEE8F0098AC6E /* BasicAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FD695208DEE8F0098AC6E /* BasicAction.swift */; };
-		023FD698208DEFEE0098AC6E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FD697208DEFEE0098AC6E /* NetworkService.swift */; };
+		023FD698208DEFEE0098AC6E /* BasicNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023FD697208DEFEE0098AC6E /* BasicNetworkService.swift */; };
 		026DF007208F1F6800539787 /* MainControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF006208F1F6800539787 /* MainControllerViewModel.swift */; };
 		026DF009208F222F00539787 /* FetchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF008208F222F00539787 /* FetchTarget.swift */; };
 		026DF00B208F231F00539787 /* SingleItemResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026DF00A208F231F00539787 /* SingleItemResource.swift */; };
@@ -72,7 +72,7 @@
 		023FD690208DEDE80098AC6E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		023FD692208DEDF10098AC6E /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		023FD695208DEE8F0098AC6E /* BasicAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAction.swift; sourceTree = "<group>"; };
-		023FD697208DEFEE0098AC6E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		023FD697208DEFEE0098AC6E /* BasicNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNetworkService.swift; sourceTree = "<group>"; };
 		026DF006208F1F6800539787 /* MainControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerViewModel.swift; sourceTree = "<group>"; };
 		026DF008208F222F00539787 /* FetchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTarget.swift; sourceTree = "<group>"; };
 		026DF00A208F231F00539787 /* SingleItemResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemResource.swift; sourceTree = "<group>"; };
@@ -199,10 +199,8 @@
 		023FD694208DEE440098AC6E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				023FD68C208DE10C0098AC6E /* APIAction.swift */,
-				023FD695208DEE8F0098AC6E /* BasicAction.swift */,
-				0205178A209088E10052B1FA /* AdvancedAction.swift */,
-				023FD697208DEFEE0098AC6E /* NetworkService.swift */,
+				0273801620B029E200030808 /* Actions */,
+				0273801720B029EF00030808 /* Services */,
 				026DF018208F2E3700539787 /* Resource */,
 			);
 			path = Network;
@@ -243,6 +241,24 @@
 				0273801420B0273A00030808 /* ArrayResource.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		0273801620B029E200030808 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				023FD68C208DE10C0098AC6E /* APIAction.swift */,
+				023FD695208DEE8F0098AC6E /* BasicAction.swift */,
+				0205178A209088E10052B1FA /* AdvancedAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		0273801720B029EF00030808 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				023FD697208DEFEE0098AC6E /* BasicNetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0281277920AF42CB00A93C55 /* CoreData */ = {
@@ -435,7 +451,7 @@
 				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,
 				020517972090B43E0052B1FA /* CommentCellViewModel.swift in Sources */,
 				026DF00D208F299D00539787 /* AlbumCell.swift in Sources */,
-				023FD698208DEFEE0098AC6E /* NetworkService.swift in Sources */,
+				023FD698208DEFEE0098AC6E /* BasicNetworkService.swift in Sources */,
 				0287EAE3208F760200A8AA3B /* Either.swift in Sources */,
 				026DF011208F29BA00539787 /* PostCell.swift in Sources */,
 				020517912090ADD40052B1FA /* Photo.swift in Sources */,

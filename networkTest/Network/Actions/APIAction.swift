@@ -6,7 +6,6 @@
 //  Copyright © 2018 Alexey Savchenko. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 protocol APIAction: URLRequestConvertible {
