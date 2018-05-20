@@ -20,7 +20,6 @@ struct BasicNetworkServiceImpl: BasicNetworkService {
     return
       RxAlamofire
         .request(resource.action)
-        .validate()
         .responseJSON()
         .map { $0.data }
         .filter { $0 != nil }
@@ -32,11 +31,8 @@ struct BasicNetworkServiceImpl: BasicNetworkService {
     return
       RxAlamofire
         .request(resource.action)
-        .validate()
         .responseJSON()
-        .map { $0.data }
-        .filter { $0 != nil }
-        .map { $0! }
+        .map { $0.data ?? Data() }
         .flatMap(resource.parse)
   }
 }

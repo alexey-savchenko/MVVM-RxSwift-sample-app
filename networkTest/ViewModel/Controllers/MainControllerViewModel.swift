@@ -19,16 +19,15 @@ protocol MainControllerViewModelType: class {
 final class MainControllerViewModel: MainControllerViewModelType {
 
   // MARK: Init and deinit
-  init(_ service: BasicNetworkService, navigationDelegate: NavigationDelegate) {
+  init(_ service: CachedNetworkService, navigationDelegate: NavigationDelegate) {
     self.service = service
 
     modeSelectedSubject
-      .asObservable()
       .distinctUntilChanged()
       .bind(onNext: targetSelected)
       .disposed(by: disposeBag)
 
-    viewModelSelectedSubject.asObservable()
+    viewModelSelectedSubject
       .bind(onNext: navigationDelegate.viewModelSelected)
       .disposed(by: disposeBag)
   }
@@ -37,7 +36,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
   }
 
   // MARK: Properties
-  private let service: BasicNetworkService
+  private let service: CachedNetworkService
   private let dataSubject = BehaviorSubject<[Either<AlbumCellViewModelType, PostCellViewModelType>]>(value: [])
   private let disposeBag = DisposeBag()
   

@@ -31,7 +31,7 @@ class AppCoordinator: Coordinator {
 
   // MARK: Functions
   func start() {
-    let controller = MainController(MainControllerViewModel(BasicNetworkServiceImpl(), navigationDelegate: self))
+    let controller = MainController(MainControllerViewModel(CachedNetworkServiceImpl(BasicNetworkServiceImpl()), navigationDelegate: self))
     navigationController.setViewControllers([controller], animated: false)
     window.rootViewController = navigationController
     window.makeKeyAndVisible()

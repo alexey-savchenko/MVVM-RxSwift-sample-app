@@ -14,31 +14,19 @@ protocol CachedNetworkService {
   func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]>
 }
 
-class CachedNetworkServiceImpl: CachedNetworkService {
+struct CachedNetworkServiceImpl: CachedNetworkService {
   private let networkService: BasicNetworkService
   private let cache = Cache()
   private let disposeBag = DisposeBag()
 
-  private let incomingDataSubject = PublishSubject<(Data, Cacheable)>()
-
   init(_ service: BasicNetworkService) {
     networkService = service
-
-    incomingDataSubject.debug()
-      .bind(onNext: { [unowned self] item in
-        let data = item.0
-        let res = item.1
-
-        self.cache.save(data, for: res)
-      })
-      .disposed(by: disposeBag)
-  }
-  deinit {
-    print("\(self) dealloc")
   }
 
   func load<T>(_ resource: SingleItemResource<T>) -> Observable<T> where T : Codable {
-    return Observable.create { [unowned self] observer in
+    return Observable.create { observer in
+
+      // TODO: Implement valid cache interaction like in ArrayResource' load method
 
       if let cached = self.cache.loadData(for: resource) {
         observer.onNext(cached)
@@ -54,7 +42,7 @@ class CachedNetworkServiceImpl: CachedNetworkService {
   }
 
   func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]> where T : Codable {
-    return Observable.create { [unowned self] observer in
+    return Observable.create { observer in
 
       let cached = self.cache.loadData(for: resource)
       observer.onNext(cached)
@@ -62,14 +50,20 @@ class CachedNetworkServiceImpl: CachedNetworkService {
       let requestResultObservable = self.networkService.load(resource)
 
       requestResultObservable
-        .subscribe(observer)
+        .filter {
+          !$0.isEmpty
+        }
+        .subscribe(onNext: { array in
+          observer.onNext(array)
+        })
         .disposed(by: self.disposeBag)
 
       requestResultObservable
-        .map { try! $0.flatMap(JSONEncoder().encode) }
-        .map(Data.init)
+        .map(JSONEncoder().encode)
         .map { ($0, resource) }
-        .subscribe(self.incomingDataSubject)
+        .subscribe(onNext: { (pair) in
+          self.cache.save(pair.0, for: pair.1)
+        })
         .disposed(by: self.disposeBag)
 
       return Disposables.create()
@@ -80,17 +74,43 @@ class CachedNetworkServiceImpl: CachedNetworkService {
 class Cache {
   let coreDataStack = CoreDataCacheStack("CacheModel")
 
-  func save(_ data: Data, for item: Cacheable) {
-    let cacheItem = CachedEntity(context: coreDataStack.managedObjectContext)
-    cacheItem.data = data
-    cacheItem.cacheKey = item.cacheKey
+  func save(_ data: Data, for resource: Cacheable) {
+    // Check for item in cache
+    let request: NSFetchRequest<NSFetchRequestResult> = CachedEntity.fetchRequest()
+    request.predicate = NSPredicate(format: "cacheKey == %@", resource.cacheKey)
+
+    if let res = try! coreDataStack.managedObjectContext.fetch(request).first as? CachedEntity {
+      // Update cached resource
+      res.data = data
+    } else {
+      // Create new cached item
+      let cacheItem = CachedEntity(context: coreDataStack.managedObjectContext)
+      cacheItem.data = data
+      cacheItem.cacheKey = resource.cacheKey
+    }
     try! coreDataStack.managedObjectContext.save()
   }
 
   func loadData<T>(for resource: ArrayResource<T>) -> [T] {
-    return [] // TODO: Fix
+    let request: NSFetchRequest<NSFetchRequestResult> = CachedEntity.fetchRequest()
+    let predicate = NSPredicate(format: "cacheKey == %@", resource.cacheKey)
+    request.predicate = predicate
+    if let result = (try? coreDataStack.managedObjectContext.fetch(request) as! [CachedEntity])?.first {
+      if let data = result.data {
+        if let decodedData = try? JSONDecoder().decode([T].self, from: data) {
+          return decodedData
+        } else {
+          return []
+        }
+      } else {
+        return []
+      }
+    } else {
+      return []
+    }
+
   }
   func loadData<T>(for resource: SingleItemResource<T>) -> T? {
-    return nil // TODO: Fix
+    return nil // TODO: Implement
   }
 }

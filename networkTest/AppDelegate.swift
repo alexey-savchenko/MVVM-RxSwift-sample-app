@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     appCoordinator = window.flatMap(AppCoordinator.init)
     appCoordinator?.start()
 
+//    let c = CoreDataCacheStack("CacheModel")
+//    c.flush()
+
     return true
   }
 }
