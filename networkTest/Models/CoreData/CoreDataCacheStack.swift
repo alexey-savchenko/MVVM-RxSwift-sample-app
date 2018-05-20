@@ -10,13 +10,15 @@ import CoreData
 import Foundation
 
 class CoreDataCacheStack {
+
+  static let shared = CoreDataCacheStack()
+
   lazy var managedObjectContext: NSManagedObjectContext = {
     return persistentContainer.viewContext
   }()
   let persistentContainer: NSPersistentContainer
-  let modelName: String
-  init(_ modelName: String) {
-    self.modelName = modelName
+  let modelName = "CacheModel"
+  private init() {
     persistentContainer = NSPersistentContainer(name: modelName)
     persistentContainer.loadPersistentStores { (_, error) in
       guard error == nil else {

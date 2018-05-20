@@ -10,13 +10,13 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-protocol AlbumControllerViewModelType {
+protocol PhotosControllerViewModelType {
   var viewModelsDriver: Driver<[PhotoCellViewModelType]> { get }
 }
 
-class AlbumControllerViewModel: AlbumControllerViewModelType {
+class PhotosControllerViewModel: PhotosControllerViewModelType {
 
-  init(_ service: BasicNetworkService, albumID: Int) {
+  init(_ service: CachedNetworkService, albumID: Int) {
     self.service = service
 
     service
@@ -30,7 +30,7 @@ class AlbumControllerViewModel: AlbumControllerViewModelType {
     print("\(self) dealloc")
   }
   private let disposeBag = DisposeBag()
-  private let service: BasicNetworkService
+  private let service: CachedNetworkService
   private let viewModelsSubject = PublishSubject<[PhotoCellViewModelType]>()
 
   var viewModelsDriver: SharedSequence<DriverSharingStrategy, [PhotoCellViewModelType]> {

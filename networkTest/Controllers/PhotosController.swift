@@ -12,7 +12,7 @@ import RxSwift
 final class PhotosController: UIViewController {
 
   // MARK: Init and deinit
-  init(_ viewModel: AlbumControllerViewModelType) {
+  init(_ viewModel: PhotosControllerViewModelType) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
@@ -24,7 +24,7 @@ final class PhotosController: UIViewController {
   }
 
   // MARK: Properties
-  private let viewModel: AlbumControllerViewModelType
+  private let viewModel: PhotosControllerViewModelType
   private let disposeBag = DisposeBag()
 
   // MARK: UI

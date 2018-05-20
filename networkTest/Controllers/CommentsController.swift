@@ -12,7 +12,7 @@ import RxSwift
 final class CommentsController: UIViewController {
 
   // MARK: Init and deinit
-  init(_ viewModel: PostControllerViewModelType) {
+  init(_ viewModel: CommentsControllerViewModelType) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
@@ -27,7 +27,7 @@ final class CommentsController: UIViewController {
   let tableView = UITableView()
 
   // MARK: Properties
-  private let viewModel: PostControllerViewModelType
+  private let viewModel: CommentsControllerViewModelType
   private let disposeBag = DisposeBag()
 
   // MARK: Functions

@@ -10,13 +10,13 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-protocol PostControllerViewModelType {
+protocol CommentsControllerViewModelType {
   var viewModelsDriver: Driver<[CommentCellViewModelType]> { get }
 }
 
-class PostControllerViewModel: PostControllerViewModelType {
+class CommentsControllerViewModel: CommentsControllerViewModelType {
 
-  init(_ service: BasicNetworkService, postID: Int) {
+  init(_ service: CachedNetworkService, postID: Int) {
     self.service = service
 
     service
@@ -29,7 +29,7 @@ class PostControllerViewModel: PostControllerViewModelType {
     print("\(self) dealloc")
   }
   private let disposeBag = DisposeBag()
-  private let service: BasicNetworkService
+  private let service: CachedNetworkService
   private let viewModelsSubject = PublishSubject<[CommentCellViewModelType]>()
 
   var viewModelsDriver: SharedSequence<DriverSharingStrategy, [CommentCellViewModelType]> {

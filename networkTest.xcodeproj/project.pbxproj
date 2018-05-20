@@ -12,8 +12,8 @@
 		0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178020907BF30052B1FA /* NavigationDelegate.swift */; };
 		0205178320907E420052B1FA /* PhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178220907E420052B1FA /* PhotosController.swift */; };
 		0205178520907E4B0052B1FA /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178420907E4B0052B1FA /* CommentsController.swift */; };
-		0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */; };
-		0205178920907F010052B1FA /* PostControllerViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178820907F010052B1FA /* PostControllerViewModelType.swift */; };
+		0205178720907ED60052B1FA /* PhotosControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178620907ED60052B1FA /* PhotosControllerViewModel.swift */; };
+		0205178920907F010052B1FA /* CommentsControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178820907F010052B1FA /* CommentsControllerViewModel.swift */; };
 		0205178B209088E10052B1FA /* AdvancedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178A209088E10052B1FA /* AdvancedAction.swift */; };
 		0205178F2090ADCC0052B1FA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205178E2090ADCC0052B1FA /* Comment.swift */; };
 		020517912090ADD40052B1FA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020517902090ADD40052B1FA /* Photo.swift */; };
@@ -54,8 +54,8 @@
 		0205178020907BF30052B1FA /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		0205178220907E420052B1FA /* PhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosController.swift; sourceTree = "<group>"; };
 		0205178420907E4B0052B1FA /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
-		0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumControllerViewModelType.swift; sourceTree = "<group>"; };
-		0205178820907F010052B1FA /* PostControllerViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostControllerViewModelType.swift; sourceTree = "<group>"; };
+		0205178620907ED60052B1FA /* PhotosControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosControllerViewModel.swift; sourceTree = "<group>"; };
+		0205178820907F010052B1FA /* CommentsControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsControllerViewModel.swift; sourceTree = "<group>"; };
 		0205178A209088E10052B1FA /* AdvancedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedAction.swift; sourceTree = "<group>"; };
 		0205178E2090ADCC0052B1FA /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		020517902090ADD40052B1FA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				026DF006208F1F6800539787 /* MainControllerViewModel.swift */,
-				0205178620907ED60052B1FA /* AlbumControllerViewModelType.swift */,
-				0205178820907F010052B1FA /* PostControllerViewModelType.swift */,
+				0205178620907ED60052B1FA /* PhotosControllerViewModel.swift */,
+				0205178820907F010052B1FA /* CommentsControllerViewModel.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -455,8 +455,8 @@
 				0205178520907E4B0052B1FA /* CommentsController.swift in Sources */,
 				0273802020B02F5500030808 /* CachedNetworkService.swift in Sources */,
 				0205179D2090BC840052B1FA /* PhotoCell.swift in Sources */,
-				0205178720907ED60052B1FA /* AlbumControllerViewModelType.swift in Sources */,
-				0205178920907F010052B1FA /* PostControllerViewModelType.swift in Sources */,
+				0205178720907ED60052B1FA /* PhotosControllerViewModel.swift in Sources */,
+				0205178920907F010052B1FA /* CommentsControllerViewModel.swift in Sources */,
 				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,
 				020517972090B43E0052B1FA /* CommentCellViewModel.swift in Sources */,
 				0273801E20B02EF000030808 /* CacheModel.xcdatamodeld in Sources */,

@@ -72,7 +72,7 @@ struct CachedNetworkServiceImpl: CachedNetworkService {
 }
 
 class Cache {
-  let coreDataStack = CoreDataCacheStack("CacheModel")
+  let coreDataStack = CoreDataCacheStack.shared
 
   func save(_ data: Data, for resource: Cacheable) {
     // Check for item in cache
