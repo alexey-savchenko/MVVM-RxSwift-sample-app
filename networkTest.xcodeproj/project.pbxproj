@@ -43,6 +43,7 @@
 		0273801E20B02EF000030808 /* CacheModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0273801C20B02EF000030808 /* CacheModel.xcdatamodeld */; };
 		0273802020B02F5500030808 /* CachedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273801F20B02F5500030808 /* CachedNetworkService.swift */; };
 		0273802220B0793600030808 /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802120B0793600030808 /* Cacheable.swift */; };
+		0273802520B1D51800030808 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802420B1D51800030808 /* Cache.swift */; };
 		0281277520AF424E00A93C55 /* CoreDataCacheStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */; };
 		0287EAE3208F760200A8AA3B /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287EAE2208F760200A8AA3B /* Either.swift */; };
 		42AD59D4F47BE2E9B9ACF875 /* Pods_networkTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B8B37B8C7453BE6C9451B /* Pods_networkTest.framework */; };
@@ -87,6 +88,7 @@
 		0273801D20B02EF000030808 /* CacheModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CacheModel.xcdatamodel; sourceTree = "<group>"; };
 		0273801F20B02F5500030808 /* CachedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedNetworkService.swift; sourceTree = "<group>"; };
 		0273802120B0793600030808 /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
+		0273802420B1D51800030808 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCacheStack.swift; sourceTree = "<group>"; };
 		0287EAE2208F760200A8AA3B /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		2101797E898B2A428631A537 /* Pods-networkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networkTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-networkTest/Pods-networkTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		0229CB97208DDEE30096ED35 /* networkTest */ = {
 			isa = PBXGroup;
 			children = (
+				0273802320B07D1200030808 /* Supporting models */,
 				0205177F20907BD70052B1FA /* Protocols */,
 				0205177A2090761C0052B1FA /* Coordinator */,
 				026DF00E208F29A200539787 /* UI */,
@@ -185,7 +188,6 @@
 		023FD68F208DEDDF0098AC6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0273802320B07D1200030808 /* Supporting models */,
 				0281277920AF42CB00A93C55 /* CoreData */,
 				023FD690208DEDE80098AC6E /* Post.swift */,
 				023FD692208DEDF10098AC6E /* Album.swift */,
@@ -274,6 +276,7 @@
 		0281277920AF42CB00A93C55 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				0273802420B1D51800030808 /* Cache.swift */,
 				0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */,
 				0273801C20B02EF000030808 /* CacheModel.xcdatamodeld */,
 			);
@@ -435,6 +438,7 @@
 				0273801520B0273A00030808 /* ArrayResource.swift in Sources */,
 				0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */,
 				0229CB9B208DDEE30096ED35 /* MainController.swift in Sources */,
+				0273802520B1D51800030808 /* Cache.swift in Sources */,
 				0205178F2090ADCC0052B1FA /* Comment.swift in Sources */,
 				0229CB99208DDEE30096ED35 /* AppDelegate.swift in Sources */,
 				0273801320B0209600030808 /* CustomError.swift in Sources */,
