@@ -66,6 +66,7 @@ final class MainController: UIViewController {
 
   fileprivate func setupUI() {
     view.backgroundColor = .white
+    navigationItem.title = "Main controller"
     setupModeSelectionSegment()
     setupTableView()
   }

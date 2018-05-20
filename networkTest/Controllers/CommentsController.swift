@@ -47,6 +47,7 @@ final class CommentsController: UIViewController {
   }
 
   private func setupUI() {
+    navigationItem.title = "Comments controller"
     view.backgroundColor = .white
     view.addSubview(tableView)
 

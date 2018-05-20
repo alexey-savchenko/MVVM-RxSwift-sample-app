@@ -49,6 +49,7 @@ final class PhotosController: UIViewController {
   }
 
   private func setupUI() {
+    navigationItem.title = "Photos controller"
     view.backgroundColor = .white
     view.addSubview(tableView)
 
