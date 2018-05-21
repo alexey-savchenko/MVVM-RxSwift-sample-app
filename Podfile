@@ -9,7 +9,6 @@ target 'networkTest' do
    pod 'RxAlamofire'
    pod 'RxSwift'
    pod 'RxCocoa'
-   pod 'SwiftyJSON'
    pod 'SnapKit'
    pod 'SDWebImage'
    

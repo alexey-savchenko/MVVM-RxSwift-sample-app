@@ -45,8 +45,8 @@ class Cache {
     } else {
       return []
     }
-
   }
+
   func loadData<T>(for resource: SingleItemResource<T>) -> T? {
     return nil // TODO: Implement
   }

@@ -12,7 +12,6 @@ PODS:
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
   - SnapKit (4.0.0)
-  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -21,7 +20,6 @@ DEPENDENCIES:
   - RxSwift
   - SDWebImage
   - SnapKit
-  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -31,7 +29,6 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
     - SnapKit
-    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -40,8 +37,7 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: a9a999fc64fb35fefe6828565f32abec8ca5d13d
+PODFILE CHECKSUM: 9919f47cd3733ff91231d10a960df619baf651b1
 
 COCOAPODS: 1.5.2

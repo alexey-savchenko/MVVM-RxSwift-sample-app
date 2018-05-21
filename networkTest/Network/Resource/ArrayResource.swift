@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import SwiftyJSON
 
 struct ArrayResource<T: Codable> {
   let objectType = T.self
