@@ -82,6 +82,7 @@ final class MainController: UIViewController {
       .asObservable()
       .map(FetchTarget.init)
       .flatMap(ignoreNil)
+      .distinctUntilChanged()
       .subscribe(viewModel.modeSelectedSubject)
       .disposed(by: disposeBag)
   }

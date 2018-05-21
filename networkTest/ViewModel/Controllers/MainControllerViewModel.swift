@@ -23,7 +23,6 @@ final class MainControllerViewModel: MainControllerViewModelType {
     self.service = service
 
     modeSelectedSubject
-      .distinctUntilChanged()
       .bind(onNext: targetSelected)
       .disposed(by: disposeBag)
 
