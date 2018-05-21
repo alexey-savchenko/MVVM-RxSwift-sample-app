@@ -9,7 +9,7 @@
 import CoreData
 
 class Cache {
-  let coreDataStack = CoreDataCacheStack.shared
+  let coreDataStack = CoreDataStack.shared
 
   func save(_ data: Data, for resource: Cacheable) {
     // Check for item in cache

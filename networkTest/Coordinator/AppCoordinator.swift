@@ -27,11 +27,12 @@ class AppCoordinator: Coordinator {
     return navigationController
   }
 
+  var networkService: NetworkService = CachedNetworkServiceImpl(BasicNetworkServiceImpl())
   var childCoordinators = [Coordinator]()
 
   // MARK: Functions
   func start() {
-    let controller = MainController(MainControllerViewModel(CachedNetworkServiceImpl(BasicNetworkServiceImpl()), navigationDelegate: self))
+    let controller = MainController(MainControllerViewModel(networkService, navigationDelegate: self))
     navigationController.setViewControllers([controller], animated: false)
     window.rootViewController = navigationController
     window.makeKeyAndVisible()
@@ -41,11 +42,15 @@ class AppCoordinator: Coordinator {
 extension AppCoordinator: NavigationDelegate {
   func viewModelSelected(_ viewModel: Either<AlbumCellViewModelType, PostCellViewModelType>) {
     let controller: UIViewController = viewModel.either(ifLeft: { (albumViewModel) -> UIViewController in
-      let photosController = PhotosController(PhotosControllerViewModel(CachedNetworkServiceImpl(BasicNetworkServiceImpl()), albumID: albumViewModel.id))
+
+      let photosController = PhotosController(PhotosControllerViewModel(networkService, albumID: albumViewModel.id))
       return photosController
+
     }) { (postViewModel) -> UIViewController in
-      let commentsController = CommentsController(CommentsControllerViewModel(CachedNetworkServiceImpl(BasicNetworkServiceImpl()), postID: postViewModel.id))
+
+      let commentsController = CommentsController(CommentsControllerViewModel(networkService, postID: postViewModel.id))
       return commentsController
+      
     }
     navigationController.pushViewController(controller, animated: true)
   }

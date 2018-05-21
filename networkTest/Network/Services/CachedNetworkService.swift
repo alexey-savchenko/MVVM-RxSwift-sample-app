@@ -9,17 +9,12 @@
 import RxSwift
 import CoreData
 
-protocol CachedNetworkService {
-  func load<T>(_ resource: SingleItemResource<T>) -> Observable<T>
-  func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]>
-}
-
-struct CachedNetworkServiceImpl: CachedNetworkService {
-  private let networkService: BasicNetworkService
+struct CachedNetworkServiceImpl: NetworkService {
+  private let networkService: NetworkService
   private let cache = Cache()
   private let disposeBag = DisposeBag()
 
-  init(_ service: BasicNetworkService) {
+  init(_ service: NetworkService) {
     networkService = service
   }
 

@@ -2,12 +2,11 @@
 //  CoreDataStack.swift
 //  networkTest
 //
-//  Created by Alexey Savchenko on 18.05.2018.
+//  Created by Alexey Savchenko on 20.05.2018.
 //  Copyright © 2018 Alexey Savchenko. All rights reserved.
 //
 
 import CoreData
-import Foundation
 
 class CoreDataStack {
 

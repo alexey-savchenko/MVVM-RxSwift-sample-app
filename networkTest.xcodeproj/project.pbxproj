@@ -44,7 +44,8 @@
 		0273802020B02F5500030808 /* CachedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273801F20B02F5500030808 /* CachedNetworkService.swift */; };
 		0273802220B0793600030808 /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802120B0793600030808 /* Cacheable.swift */; };
 		0273802520B1D51800030808 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802420B1D51800030808 /* Cache.swift */; };
-		0281277520AF424E00A93C55 /* CoreDataCacheStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */; };
+		0273802720B1D7D900030808 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802620B1D7D900030808 /* NetworkService.swift */; };
+		0273802920B1D99B00030808 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273802820B1D99B00030808 /* CoreDataStack.swift */; };
 		0287EAE3208F760200A8AA3B /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287EAE2208F760200A8AA3B /* Either.swift */; };
 		42AD59D4F47BE2E9B9ACF875 /* Pods_networkTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B8B37B8C7453BE6C9451B /* Pods_networkTest.framework */; };
 /* End PBXBuildFile section */
@@ -89,7 +90,8 @@
 		0273801F20B02F5500030808 /* CachedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedNetworkService.swift; sourceTree = "<group>"; };
 		0273802120B0793600030808 /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		0273802420B1D51800030808 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCacheStack.swift; sourceTree = "<group>"; };
+		0273802620B1D7D900030808 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0273802820B1D99B00030808 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0287EAE2208F760200A8AA3B /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		2101797E898B2A428631A537 /* Pods-networkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networkTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-networkTest/Pods-networkTest.debug.xcconfig"; sourceTree = "<group>"; };
 		75AE4C022D310BDFD5C3CBB5 /* Pods-networkTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networkTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-networkTest/Pods-networkTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				0205178020907BF30052B1FA /* NavigationDelegate.swift */,
 				0273802120B0793600030808 /* Cacheable.swift */,
+				0273802620B1D7D900030808 /* NetworkService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -277,8 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				0273802420B1D51800030808 /* Cache.swift */,
-				0281277420AF424E00A93C55 /* CoreDataCacheStack.swift */,
 				0273801C20B02EF000030808 /* CacheModel.xcdatamodeld */,
+				0273802820B1D99B00030808 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -433,7 +436,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0281277520AF424E00A93C55 /* CoreDataCacheStack.swift in Sources */,
 				023FD68D208DE10C0098AC6E /* APIAction.swift in Sources */,
 				0273801520B0273A00030808 /* ArrayResource.swift in Sources */,
 				0205178120907BF30052B1FA /* NavigationDelegate.swift in Sources */,
@@ -461,12 +463,14 @@
 				0205179D2090BC840052B1FA /* PhotoCell.swift in Sources */,
 				0205178720907ED60052B1FA /* PhotosControllerViewModel.swift in Sources */,
 				0205178920907F010052B1FA /* CommentsControllerViewModel.swift in Sources */,
+				0273802920B1D99B00030808 /* CoreDataStack.swift in Sources */,
 				026DF015208F2A7400539787 /* PostCellViewModel.swift in Sources */,
 				020517972090B43E0052B1FA /* CommentCellViewModel.swift in Sources */,
 				0273801E20B02EF000030808 /* CacheModel.xcdatamodeld in Sources */,
 				026DF00D208F299D00539787 /* AlbumCell.swift in Sources */,
 				023FD698208DEFEE0098AC6E /* BasicNetworkService.swift in Sources */,
 				0287EAE3208F760200A8AA3B /* Either.swift in Sources */,
+				0273802720B1D7D900030808 /* NetworkService.swift in Sources */,
 				026DF011208F29BA00539787 /* PostCell.swift in Sources */,
 				020517912090ADD40052B1FA /* Photo.swift in Sources */,
 				0273802220B0793600030808 /* Cacheable.swift in Sources */,

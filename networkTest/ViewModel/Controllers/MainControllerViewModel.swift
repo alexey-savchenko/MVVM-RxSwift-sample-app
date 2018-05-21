@@ -19,7 +19,7 @@ protocol MainControllerViewModelType: class {
 final class MainControllerViewModel: MainControllerViewModelType {
 
   // MARK: Init and deinit
-  init(_ service: CachedNetworkService, navigationDelegate: NavigationDelegate) {
+  init(_ service: NetworkService, navigationDelegate: NavigationDelegate) {
     self.service = service
 
     modeSelectedSubject
@@ -36,7 +36,7 @@ final class MainControllerViewModel: MainControllerViewModelType {
   }
 
   // MARK: Properties
-  private let service: CachedNetworkService
+  private let service: NetworkService
   private let dataSubject = BehaviorSubject<[Either<AlbumCellViewModelType, PostCellViewModelType>]>(value: [])
   private let disposeBag = DisposeBag()
   

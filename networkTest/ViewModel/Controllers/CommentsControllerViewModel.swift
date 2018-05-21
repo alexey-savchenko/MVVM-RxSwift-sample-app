@@ -16,7 +16,7 @@ protocol CommentsControllerViewModelType {
 
 class CommentsControllerViewModel: CommentsControllerViewModelType {
 
-  init(_ service: CachedNetworkService, postID: Int) {
+  init(_ service: NetworkService, postID: Int) {
     self.service = service
 
     service
@@ -29,7 +29,7 @@ class CommentsControllerViewModel: CommentsControllerViewModelType {
     print("\(self) dealloc")
   }
   private let disposeBag = DisposeBag()
-  private let service: CachedNetworkService
+  private let service: NetworkService
   private let viewModelsSubject = PublishSubject<[CommentCellViewModelType]>()
 
   var viewModelsDriver: SharedSequence<DriverSharingStrategy, [CommentCellViewModelType]> {

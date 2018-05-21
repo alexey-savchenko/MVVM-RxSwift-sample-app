@@ -9,12 +9,7 @@
 import RxSwift
 import RxAlamofire
 
-protocol BasicNetworkService {
-  func load<T>(_ resource: SingleItemResource<T>) -> Observable<T>
-  func load<T>(_ resource: ArrayResource<T>) -> Observable<[T]>
-}
-
-struct BasicNetworkServiceImpl: BasicNetworkService {
+struct BasicNetworkServiceImpl: NetworkService {
 
   func load<T>(_ resource: SingleItemResource<T>) -> Observable<T> where T : Codable {
     return
