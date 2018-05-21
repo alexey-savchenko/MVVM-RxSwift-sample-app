@@ -21,7 +21,7 @@ class CommentsControllerViewModel: CommentsControllerViewModelType {
 
     service
       .load(ArrayResource<Comment>(action: AdvancedAction.comments(postID: postID)))
-      .map { $0.map(CommentCellViewModel.init) }
+      .map { $0.map(CommentCellViewModel.init) }.debug()
       .subscribe(viewModelsSubject)
       .disposed(by: disposeBag)
   }
@@ -30,7 +30,7 @@ class CommentsControllerViewModel: CommentsControllerViewModelType {
   }
   private let disposeBag = DisposeBag()
   private let service: NetworkService
-  private let viewModelsSubject = PublishSubject<[CommentCellViewModelType]>()
+  private let viewModelsSubject = BehaviorSubject<[CommentCellViewModelType]>(value: [])
 
   var viewModelsDriver: SharedSequence<DriverSharingStrategy, [CommentCellViewModelType]> {
     return viewModelsSubject.asDriver(onErrorJustReturn: [])

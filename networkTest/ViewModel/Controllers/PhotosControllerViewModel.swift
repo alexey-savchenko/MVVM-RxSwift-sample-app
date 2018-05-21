@@ -21,7 +21,6 @@ class PhotosControllerViewModel: PhotosControllerViewModelType {
 
     service
       .load(ArrayResource<Photo>(action: AdvancedAction.photos(albumID: albumID)))
-      .debug()
       .map {
         $0.map(PhotoCellViewModel.init)
       }
@@ -34,7 +33,7 @@ class PhotosControllerViewModel: PhotosControllerViewModelType {
   }
   private let disposeBag = DisposeBag()
   private let service: NetworkService
-  private let viewModelsSubject = PublishSubject<[PhotoCellViewModelType]>()
+  private let viewModelsSubject = BehaviorSubject<[PhotoCellViewModelType]>(value: [])
 
   var viewModelsDriver: SharedSequence<DriverSharingStrategy, [PhotoCellViewModelType]> {
     return viewModelsSubject.asDriver(onErrorJustReturn: [])
