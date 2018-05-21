@@ -179,8 +179,6 @@
 				023FD694208DEE440098AC6E /* Network */,
 				023FD68F208DEDDF0098AC6E /* Models */,
 				0287EAE4208F78FB00A8AA3B /* Controllers */,
-				0229CB98208DDEE30096ED35 /* AppDelegate.swift */,
-				026DF016208F2C6A00539787 /* Utility.swift */,
 				0229CB9F208DDEE40096ED35 /* Assets.xcassets */,
 				0229CBA1208DDEE40096ED35 /* LaunchScreen.storyboard */,
 				0229CBA4208DDEE40096ED35 /* Info.plist */,
@@ -270,6 +268,8 @@
 		0273802320B07D1200030808 /* Supporting models */ = {
 			isa = PBXGroup;
 			children = (
+				0229CB98208DDEE30096ED35 /* AppDelegate.swift */,
+				026DF016208F2C6A00539787 /* Utility.swift */,
 				0287EAE2208F760200A8AA3B /* Either.swift */,
 				0273801220B0209600030808 /* CustomError.swift */,
 			);
@@ -611,7 +611,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = networkTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.networkTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -627,7 +630,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N35W696BYS;
 				INFOPLIST_FILE = networkTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.networkTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
